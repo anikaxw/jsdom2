@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+
+
+    </header>
+    <main>
+        <h1 class="countdown-title">До конца акции осталось:</h1>
+        <div id="countdown" class="countdown">
+            <div class="countdown-number">
+                <span class="days countdown-time"></span>
+                <span class="countdown-text">Дней</span>
+            </div>
+            <div class="countdown-number">
+                <span class="hours countdown-time"></span>
+                <span class="countdown-text">Часов</span>
+            </div>
+            <div class="countdown-number">
+                <span class="minutes countdown-time"></span>
+                <span class="countdown-text">Минут</span>
+            </div>
+            <div class="countdown-number">
+                <span class="seconds countdown-time"></span>
+                <span class="countdown-text">Секунд</span>
+            </div>
+        </div>
+    </main>
+    <style>
+        body {
+            margin-top: 200px;
+            text-align: center;
+            background: #7bf5be8e;
+            font-family: sans-serif;
+            font-weight: 100;
+        }
+
+        .countdown-title {
+            color: rgb(24, 110, 47);
+            font-weight: 100;
+            font-size: 50px;
+            margin: 40px 0px 20px;
+
+        }
+
+        .countdown {
+            font-family: sans-serif;
+            color: #fff;
+            display: inline-block;
+            font-weight: 100;
+            text-align: center;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .countdown-number {
+            margin: 0 10px;
+            font-size: 32px;
+            color: #fff;
+            background: linear-gradient(#0a5130, #13995b);
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .countdown-time {
+            padding: 15px;
+            border-radius: 3px;
+            background-color: (hsl(0, 0%, 100%));
+            display: inline-block;
+            border-color: #000000;
+        }
+
+        .countdown-text {
+            display: block;
+            padding-top: 5px;
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        function getTimeRemaining(endtime) {
+            var t = Date.parse(endtime) - Date.parse(new Date());
+            var seconds = Math.floor((t / 1000) % 60);
+            var minutes = Math.floor((t / 1000 / 60) % 60);
+            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+            var days = Math.floor(t / (1000 * 60 * 60 * 24));
+            return {
+                'total': t,
+                'days': days,
+                'hours': hours,
+                'minutes': minutes,
+                'seconds': seconds
+            };
+        }
+
+        function initializeClock(id, endtime) {
+            var clock = document.getElementById(id);
+            var daysSpan = clock.querySelector('.days');
+            var hoursSpan = clock.querySelector('.hours');
+            var minutesSpan = clock.querySelector('.minutes');
+            var secondsSpan = clock.querySelector('.seconds');
+
+            function updateClock() {
+                var t = getTimeRemaining(endtime);
+
+                daysSpan.innerHTML = t.days;
+                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+                if (t.total <= 0) {
+                    clearInterval(timeinterval);
+                }
+            }
+
+            updateClock();
+            var timeinterval = setInterval(updateClock, 1000);
+        }
+
+        var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000); // for endless timer
+        initializeClock('countdown', deadline);
+    </script>
+
+</body>

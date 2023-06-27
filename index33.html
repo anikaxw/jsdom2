@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+
+<body>
+    <input type="checkbox" class="read-more-checker" id="read-more-checker" />
+    <div class="limiter">
+        <ul> Фаленопсис — идеальное растение для начинающих цветоводов, эта орхидея
+            неприхотлива, прекрасно ведет себя в условиях обычных квартир. Фаленопсис отличается короткими
+            стеблями и суккулентными листьями. Цветки орхидеи очень изящны, по форме напоминают бабочку. Именно
+            эта разновидность комнатных орхидей очень неприхотлива к уходу, поэтому будет в радость даже для
+            начинающих цветоводов-любителей.
+            <br>
+            Биологическое описание:
+            <br>
+            <ul type="disc">
+                <li>Листья вечнозелёные, длиной 5—30 см. У некоторых видов на листьях красивый мраморный рисунок.
+                </li>
+                <li>Цветоносы пазушные, длинные, часто ветвящиеся, у многих видов с большим количеством довольно
+                    крупных
+                    цветков. Цветок напоминает по форме бабочку.</li>
+                <li> Корни воздушные с толстым слоем веламена, иногда уплощенные, у некоторых видов зеленоватые за
+                    счет
+                    присутствия в них хлорофилла.</li>
+                <li>Длительность цветения цветка в среднем до 4 месяцев, что также зависит от вида и сорта
+                    Фаленопсисов,
+                    которые при благоприятных условиях могут цвести даже 2-3 раза в год.</li>
+            </ul>
+            Уход:
+            <br>
+            <ul type="disc">
+                <li>Растение не любит прямых солнечных лучей, но нуждается в свете для здорового цветения.</li>
+                <li>Также необходимо поддерживать постоянную влажность в помещении.</li>
+                <li>Растение посажено в специальный горшок из прозрачного пластика. Это позволяет поддерживать
+                    необходимый уровень увлажненности и освещения корневой системы.</li>
+                <li>Грамотно и технологично приготовленная питательная смесь, в которой растет цветок, состоит из
+                    гипоаллергенных натуральных компонентов.</li>
+                <li>При правильном уходе фаленопсис может цвести несколько раз в год.</li>
+            </ul>
+            Преимущества:
+            <br>
+            <ul type="disc">
+                <li>нежный цветок;</li>
+                <li>украшение для любого помещения;</li>
+                <li>отличный подарок начинающим цветоводам;</li>
+                <li>эффектный внешний вид;</li>
+                <li>невысокая цена.</li>
+            </ul>
+            Большой ассортимент комнатных растений в интернет-каталоге Beautiful-plants поразит любого
+            покупателя.
+        </ul>
+        <div class="bottom"></div>
+    </div>
+    <label for="read-more-checker" class="read-more-button"></label>
+</body>
+
+</html>
+
+<style>
+    /* Стили для текстового поля с кнопкой "Далее" */
+    .limiter {
+        max-height: 200px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .limiter .bottom {
+        position: absolute;
+        /* Если прыгает - можно попробовать sticky */
+        bottom: 0;
+        background: linear-gradient(to bottom,
+                rgb(255 217 29 / 0%),
+                rgba(176, 176, 176, 0.747)90%);
+        width: 50%;
+        height: 20px;
+        opacity: 1;
+        transition: 0.3s;
+    }
+
+    .read-more-checker {
+        opacity: 0;
+        position: absolute;
+    }
+
+    .read-more-checker:checked~.limiter {
+        max-height: none;
+    }
+
+    .read-more-checker:checked~.limiter .bottom {
+        opacity: 0;
+        transition: 0.3s;
+    }
+
+    .read-more-checker~.read-more-button:before {
+        content: "Развернуть »";
+    }
+
+    .read-more-checker:checked~.read-more-button:before {
+        content: "Свернуть «";
+    }
+
+    .read-more-button {
+        cursor: pointer;
+        display: inline-block;
+        color: rgb(0, 0, 0);
+        text-decoration: underline;
+    }
+</style>

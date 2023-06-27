@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <HEAD>
+        <script>
+            // сумма за квартал, налог и сумма, выдаваемая на руки
+            function sum(obj) {
+                var d = document
+                var a1 = Number(obj.num1.value)
+                var a2 = Number(obj.num2.value)
+                var a3 = Number(obj.snum3.value)
+                var s = a1 + a2 + a3
+                var n = 0.13 * s
+                var m = s - n
+                document.write(st);
+            }
+        </script>
+    </HEAD>
+
+    <BODY>
+        <H5>Определение дохода за квартал</H5>
+        <FORM name="form1">
+            <p>Введите суммы за каждый месяц и нажмите на кнопку <b>Вычислить</b></p>
+            <pre>
+        Январь:  <INPUT type="text" name="num1" size=10>
+        Февраль: <INPUT type="text" name= "num2" size=10>
+        Март:    <INPUT type="text" name="num3" size=10><hr>
+          <INPUT type="button" value=Вычислить onClick="sum(form1)">
+        </pre>
+            <INPUT type="reset">
+        </FORM>
+    </BODY>
+
+</body>
+
+</html>
